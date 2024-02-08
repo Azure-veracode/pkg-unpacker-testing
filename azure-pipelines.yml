@@ -23,7 +23,8 @@ steps:
     ConnectionDetailsSelection: 'Credentials'
     apiId: '$(VERACODE_API_ID)'
     apiKey: '$(VERACODE_API_KEY)'
-    veracodeAppProfile: '$(system.teamProject)'
+    # veracodeAppProfile: '$(system.teamProject)'
+    veracodeAppProfile: 'Arun-jenkins-test'
     version: '$(build.buildNumber)'
     filepath: '$(build.artifactstagingdirectory)/$(Build.BuildId).zip'
     importResults: true
