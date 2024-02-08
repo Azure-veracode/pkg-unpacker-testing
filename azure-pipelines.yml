@@ -15,7 +15,7 @@ steps:
     rootFolderOrFile: '$(Agent.BuildDirectory)'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-js.zip'
     replaceExistingArchive: true
 
 - task: Veracode@3
@@ -26,6 +26,6 @@ steps:
     # veracodeAppProfile: '$(system.teamProject)'
     veracodeAppProfile: 'VeraDemo'
     version: '$(build.buildNumber)'
-    filepath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    filepath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-js.zip'
     importResults: true
     maximumWaitTime: '360'
