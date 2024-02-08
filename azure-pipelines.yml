@@ -12,10 +12,10 @@ pool:
 steps:
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    rootFolderOrFile: '$(Agent.BuildDirectory)'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
 
 - task: Veracode@3
@@ -24,8 +24,8 @@ steps:
     apiId: '$(VERACODE_API_ID)'
     apiKey: '$(VERACODE_API_KEY)'
     # veracodeAppProfile: '$(system.teamProject)'
-    veracodeAppProfile: 'Arun-jenkins-test'
+    veracodeAppProfile: 'VeraDemo'
     version: '$(build.buildNumber)'
-    filepath: '$(build.artifactstagingdirectory).zip'
+    filepath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     importResults: true
     maximumWaitTime: '360'
