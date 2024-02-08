@@ -15,7 +15,7 @@ steps:
     rootFolderOrFile: '$(Build.BinariesDirectory)'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory).zip'
     replaceExistingArchive: true
 
 - task: Veracode@3
@@ -26,6 +26,6 @@ steps:
     # veracodeAppProfile: '$(system.teamProject)'
     veracodeAppProfile: 'Arun-jenkins-test'
     version: '$(build.buildNumber)'
-    filepath: '$(build.artifactstagingdirectory)/$(Build.BuildId).zip'
+    filepath: '$(build.artifactstagingdirectory).zip'
     importResults: true
     maximumWaitTime: '360'
