@@ -25,6 +25,6 @@ steps:
     apiKey: '$(VERACODE_API_KEY)'
     veracodeAppProfile: '$(system.teamProject)'
     version: '$(build.buildNumber)'
-    filepath: '$(build.artifactstagingdirectory)'
+    filepath: '$(build.artifactstagingdirectory)/$(Build.BuildId).zip'
     importResults: true
     maximumWaitTime: '360'
