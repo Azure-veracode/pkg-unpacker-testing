@@ -17,6 +17,11 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-js.zip'
     replaceExistingArchive: true
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-js.zip'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 
 - task: Veracode@3
   inputs:
